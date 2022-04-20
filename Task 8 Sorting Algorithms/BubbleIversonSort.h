@@ -1,8 +1,5 @@
 #pragma once
 
+#include "Timer.h"
 
-template <typename T>
-void BubbleIversonSort(T& array)
-{
-
-}
+void bubbleIversonSort(int* p_array, const size_t& size);

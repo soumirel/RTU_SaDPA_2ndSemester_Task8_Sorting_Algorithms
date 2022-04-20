@@ -139,12 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bubbleIversonSort.c++" />
     <ClCompile Include="main.c++" />
+    <ClCompile Include="mergeSort.c++" />
+    <ClCompile Include="shellSort.c++" />
+    <ClCompile Include="Timer.c++" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BubbleIversonSort.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="ShellSort.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,8 +1,7 @@
 #pragma once
 
+#include "Timer.h"
 
-template <typename T>
-void MergeSort(T& array)
-{
+int* sort(int* up, int* down, size_t left, size_t right);
 
-}
+void mergeSort(int* up, size_t size);

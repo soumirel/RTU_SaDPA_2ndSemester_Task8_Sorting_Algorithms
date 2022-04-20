@@ -1,8 +1,5 @@
 #pragma once
 
+#include "Timer.h"
 
-template <typename T>
-void ShellSort(T& array)
-{
-
-}
+void shellSort(int* p_array, const size_t& size);

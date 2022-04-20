@@ -18,6 +18,18 @@
     <ClCompile Include="main.c++">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="bubbleIversonSort.c++">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="mergeSort.c++">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="shellSort.c++">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.c++">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BubbleIversonSort.h">
@@ -27,6 +39,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MergeSort.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
