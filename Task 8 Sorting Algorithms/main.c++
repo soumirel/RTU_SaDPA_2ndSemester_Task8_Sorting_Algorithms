@@ -2,6 +2,7 @@
 #include <iostream>
 #include <locale>
 #include <random>
+#include <algorithm>
 
 #include "BubbleIversonSort.h"
 #include "ShellSort.h"
@@ -28,7 +29,9 @@ void randomFillArray(int*& p_array, const size_t& size);
 
 int getRandomNumber(const int left, const int right);
 
-void testAlgorithms();
+void testAlgsRandomArray();
+
+void testAlgsSortedArray();
 
 
 int main()
@@ -76,7 +79,12 @@ int main()
 			break;
 
 		case 3:
-			testAlgorithms();
+			testAlgsRandomArray();
+			system("pause");
+			break;
+
+		case 4:
+			testAlgsSortedArray();
 			system("pause");
 			break;
 
@@ -127,6 +135,7 @@ void printMenu(int*& p_array, const size_t& size)
 	cout << "Введите [1], чтобы определить массив.\n"
 		"Введите [2], чтобы произвести сортировку над введённым массивом\n"
 		"Введите [3], чтобы выполнить контрольные прогоны алгоритма для различных размеров массива.\n"
+		"Введите [4], чтобы выполнить прогоны алгоритма на отсортированных массивах различного размера.\n"
 		"Введите [0], чтобы закончить работу программы.\n";
 	cout << "\nВаш выбор: ";
 }
@@ -256,9 +265,8 @@ int getRandomNumber(const int left, const int right)
 }
 
 
-void testAlgorithms()
+void testAlgsRandomArray()
 {
-	
 	cout << "\nКакой алгоритм вы хотите протестировать?\n"
 		"Введите [1], чтобы выбрать сортировку пузырьком с условием Айверсона.\n"
 		"Введите [2], чтобы выбрать сортировку Шелла с убывающим вдвое шагом.\n"
@@ -293,6 +301,82 @@ void testAlgorithms()
 
 		cout << "Массив из " << testSize << " чисел был отсортирован.\n\n";
 		
+		testSize *= 10;
+
+		delete[] testArray;
+	}
+}
+
+
+int compAscending(const int* i, const int* j)
+{
+	return *i - *j;
+}
+
+
+int compDescending(const int* i, const int* j)
+{
+	return *j - *i;
+}
+
+
+void testAlgsSortedArray()
+{
+	cout << "\nКакой алгоритм вы хотите протестировать?\n"
+		"Введите [1], чтобы выбрать сортировку пузырьком с условием Айверсона.\n"
+		"Введите [2], чтобы выбрать сортировку Шелла с убывающим вдвое шагом.\n"
+		"Введите [3], чтобы выбрать сортировку слиянием\n"
+		"\nВаш выбор: ";
+
+	int userChoiceAlgorithm;
+	cin >> userChoiceAlgorithm;
+
+	int* testArray;
+	size_t testSize = 100;
+	while (testSize <= 1000000)
+	{
+		testArray = new int[testSize];
+		randomFillArray(testArray, testSize);
+
+		cout << '\n';
+
+		qsort(testArray, testSize, sizeof(int), (int(*) (const void*, const void*)) compAscending);
+		switch (userChoiceAlgorithm)
+		{
+		case 1:
+			bubbleIversonSort(testArray, testSize);
+			break;
+
+		case 2:
+			shellSort(testArray, testSize);
+			break;
+
+		case 3:
+			mergeSort(testArray, testSize);
+			break;
+		}
+
+		cout << "Массив строго в возрастающем порядке из " << testSize << " чисел был отсортирован.\n";
+
+
+		qsort(testArray, testSize, sizeof(int), (int(*) (const void*, const void*)) compDescending);
+		switch (userChoiceAlgorithm)
+		{
+		case 1:
+			bubbleIversonSort(testArray, testSize);
+			break;
+
+		case 2:
+			shellSort(testArray, testSize);
+			break;
+
+		case 3:
+			mergeSort(testArray, testSize);
+			break;
+		}
+
+		cout << "Массив строго в убывающем порядке из " << testSize << " чисел был отсортирован.\n\n";
+
 		testSize *= 10;
 
 		delete[] testArray;
